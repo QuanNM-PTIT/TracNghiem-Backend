@@ -3,7 +3,7 @@ from datetime import datetime
 from bson import ObjectId
 from fastapi import APIRouter, Depends
 from models.test_detail_model import TestDetail
-from models.test_model import Test, AddTest
+from models.test_model import AddTest
 from schemas.test_schema import tests_serializer, test_detail_serializer
 from config.database import test_collection, topic_detail_collection, test_detail_collection, question_collection, \
     answer_collection, attemp_collection

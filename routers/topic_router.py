@@ -1,13 +1,12 @@
 import io
 import json
 from bson import ObjectId
-from starlette.responses import FileResponse, StreamingResponse
+from starlette.responses import StreamingResponse
 from config.minio_config import minio_client
 from config.redis_config import rd
 from fastapi import APIRouter, Depends, UploadFile, Form
-from models.topic_model import Topic
 from schemas.topic_schema import topics_serializer, topic_serializer
-from config.database import topic_collection, test_detail_collection, topic_detail_collection
+from config.database import topic_collection, topic_detail_collection
 from routers.authentication_router import get_current_user
 
 router = APIRouter(
