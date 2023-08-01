@@ -1,7 +1,7 @@
 import random
 from bson import ObjectId
 from fastapi import APIRouter, Depends
-from models.question_model import Question, QuestionDetail
+from models.question_model import QuestionDetail
 from routers.authentication_router import get_current_user
 from config.database import question_collection, answer_collection, test_detail_collection
 from schemas.question_schema import question_detail_serializer, question_detail_serializer_for_test

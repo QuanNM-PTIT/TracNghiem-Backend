@@ -46,7 +46,8 @@ def login(user: OAuth2PasswordRequestForm = Depends()):
                             detail='Thông tin đăng nhập không chính xác.')
     access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
     access_token = create_access_token(
-        data={"sub": this_user['email'], "role": this_user['role'], "user_id": str(this_user['_id'])}, expires_delta=access_token_expires
+        data={"sub": this_user['email'], "role": this_user['role'], "user_id": str(this_user['_id'])},
+        expires_delta=access_token_expires
     )
     return {"access_token": access_token, "token_type": "bearer"}
 

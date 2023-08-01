@@ -1,6 +1,3 @@
-from typing import Optional
-
-
 def test_serializer(test) -> dict:
     return {
         'test_id': str(test['_id']),
