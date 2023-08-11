@@ -1,0 +1,40 @@
+services:
+  app:
+    image: quannnm/trac_nghiem_backend
+    ports: 
+      - 8000:8000
+    env_file:
+      - .env
+    depends_on:
+      - redis
+      - minio
+      - mongodb
+    
+  redis:
+    image: redis
+    ports: 
+      - 6379:6379
+
+  minio:
+    image: minio/minio
+    volumes:
+      - minio-data:/data
+    ports:
+      - 9000:9000
+      - 9090:9090
+    environment:
+      - MINIO_ACCESS_KEY=minioadmin
+      - MINIO_SECRET_KEY=minioadmin
+    command: server ~/data --address 0.0.0.0:9000 --console-address 0.0.0.0:9090
+
+  
+  mongodb:
+    image: mongo
+    ports:
+      - "1234:27017"
+    volumes:
+      - mongodb-data:/data/db
+
+volumes:
+  minio-data:
+  mongodb-data:
